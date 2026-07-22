@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>  BMI Calculator
+    </title>
+</head>
+<body>
+    <div class="flex items-center justify-center   border border-black rounded-2xl h-130 w-200 p-6 mt-10 ml-80 flex-col  mb-4">
+        <h1 class="font-bold text-2xl bg-black text-white w-130 text-center mb-4 p-4 rounded rounded-2xl">BMI  Calculator </h1>
+  <label for="height" class="font-bold mb-4 text-blue-500"> Enter your height</label>
+       <input type="number"  min="1"  placeholder="Enter the height" id="height"  class="border rounded mb-5 p-3 w-130">
+
+       <label for="weight" class="font-bold mb-4 text-blue-500">Enter your Weight</label>
+       <input type="number" id="weight" min="1"  placeholder="Enter your weight" class="border rounded mb-5 p-3 w-130" >
+
+       <button id="btn" class="border rounded mb-4 p-3 w-130 bg-blue-500">Calculate BMI </button>
+
+       <div id="result"  class="mb-2 font-bold bg-blue-500 text-center text-white border   rounded "> 
+
+       
+       </div   >
+       <div id="bmi"  class="mb-2 font-bold bg-red-500 text-center text-white border  rounded  rounded  "></div>
+
+
+
+
+
+
+
+    </div>
+
+   
+
+    <script src="day20.js"></script>
+   
+    
+</body>
+</html>
