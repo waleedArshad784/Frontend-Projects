@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To DO APP</title>
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body >
+    <div class="flex items-center justify-center min-h-screen bg-[#070d14] p-6">
+  <!-- Main Container -->
+  <div class="w-full max-w-lg bg-gradient-to-b from-[#061c30] to-[#08223a] rounded-2xl p-8 shadow-2xl border border-[#0d2d4a]/50">
+    
+    <!-- Title -->
+    <h1 class="text-2xl font-bold text-white mb-6 tracking-wide">
+      To-Do List
+    </h1>
+
+    <!-- Input Section -->
+    <div class="flex gap-3 mb-6" id="first">
+      <input 
+        type="text" id="input"
+        placeholder="Please Enter a New task" 
+        class="flex-1 bg-[#092238] border border-[#143859] text-sm text-white placeholder-slate-400 rounded-md px-4 py-3 focus:outline-none focus:border-amber-400"
+      />
+      <button class="bg-[#ffb800] hover:bg-amber-400 text-black font-semibold text-xs px-6 py-3 rounded-md uppercase tracking-wider transition-colors" id="btn1">
+        ADD
+      </button>
+    </div>
+    <div  id="show"> </div>
+    
+
+    
+      
+      
+  </div>
+  <div id="message">
+    
+  </div>
+</div>
+
+    <script src="csript.js"></script>
+</body>
+</html>
