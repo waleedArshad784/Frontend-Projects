@@ -9,7 +9,9 @@ button.addEventListener("click", generateUser);
 
 async function generateUser() {
 
-    const response = await fetch("https://randomuser.me/api/");
+   try{
+
+     const response = await fetch("https://randomuser.me/api/");
 
     const data = await response.json();
 
@@ -27,6 +29,12 @@ async function generateUser() {
     country.textContent = userCountry;
     phone.textContent = userPhone;
     image.src = userImage;
+   }
+
+   catch(error) {
+    console.log(" this is internet error. internet can not work properly");
+  
+   }
 
 }
 
