@@ -5,6 +5,9 @@
     const totalNotes = document.querySelector('#totalNotes');
     const emptyState = document.querySelector('#emptyState');
 
+    let editingId = null;
+        
+
     let arr =[
     
     ]
@@ -17,6 +20,10 @@
         const notes = note.value;
 
      if (title != "" && notes != "") {
+
+        if (editingId === null){
+
+        
 
     const obj = {
         id: crypto.randomUUID(),
@@ -32,12 +39,26 @@
     note.value ="";
 
 }
+ else {
+
+    const foundNote = arr.find(item => item.id === editingId);
+
+    foundNote.title = title;
+    foundNote.description = notes;
+    editingId =null;
+    display();
+    input.value="";
+    note.value = "";
+ }
+     
 
       
 
 
 
     }
+    savedNotes();
+}
 function display() {
 
     notescontainer.innerHTML = "";
@@ -86,7 +107,7 @@ function display() {
             <div class="flex justify-end gap-3 mt-6">
 
                 <button
-                    class="px-5 py-2 rounded-xl bg-amber-400 hover:bg-amber-500 text-white font-medium transition">
+                    class="editBtn px-5 py-2 rounded-xl bg-amber-400 hover:bg-amber-500 text-white font-medium transition">
 
                     ✏ Edit
 
@@ -104,6 +125,7 @@ function display() {
         </div>
      
         `;
+        savedNotes();
 
         notescontainer.appendChild(card);
 
@@ -117,6 +139,12 @@ function display() {
         deleteNote(item.id);
 
     })
+
+const editNote = card.querySelector('.editBtn');
+editNote.addEventListener('click', ()=>{
+    editNotes(item.id);
+})
+
     }
   
 }
@@ -133,11 +161,38 @@ function deleteNote(id){
 
 
       console.log(newArr);
+      savedNotes();
 
 
         
 };
 
+function editNotes(id){
+
+    const foundNote = arr.find(item=>
+        item.id === id 
+    );
+    input.value = foundNote.title;
+ note.value = foundNote.description;
+editingId = id;
+savedNotes();
+
+}
+
+function savedNotes(){
+    localStorage.setItem(
+    "notes",
+    JSON.stringify(arr)
+);
+    
+
+}
+
+function loadNostes(){
+    arr = JSON.parse(localStorage.getItem("notes")) ?? [];
+    display();
+}
+loadNostes();
 
 
  
